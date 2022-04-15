@@ -44,7 +44,8 @@ void showBoard(char board[3][3])
 
 // Add code to determine if a winner (xo) has occurred
 bool isWinner(char board[3][3], char xo)
-{    bool win;
+{    
+    bool win;
     win =0;
     int i =0, j=0;
     for(i =0; i<3; i++){
@@ -91,83 +92,69 @@ bool isWinner(char board[3][3], char xo)
 //  and then record in the game board
 bool addMove(char board[3][3], char move[], char xo)
 {
-    
-    
-    //int verify1=0;
-    //int verify2=0;
     bool ok = strlen(move) == 2;
-    //int cmp;
-    /*char* token =strtok(move, "1 2 3");
-    //char* numTok= strtok(move,"A B C");
-    while(token!=NULL){
-        if(strcmp(token , "A") == 0){ verify1++;}
-        else if(strcmp(token , "B") == 0){ verify1++;}
-        else if(strcmp(token , "C") == 0){verify1++;}
-        else if(strcmp(token,1)==0){ verify2++;}
-        else if(strcmp(token,2)==0){ verify2++;}
-        else if(strcmp(token,3)==0){ verify2++;}
-    }*/
+
     int k=0; 
         
-        int cmp1 = strcmp(move, "A1");
-        int cmp2 = strcmp(move, "B1");
-        int cmp3 = strcmp(move, "C1");
-        int cmp4 = strcmp(move, "A2");
-        int cmp5 = strcmp(move, "B2");
-        int cmp6 = strcmp(move, "C2");
-        int cmp7 = strcmp(move, "A3");
-        int cmp8 = strcmp(move, "B3");
-        int cmp9 = strcmp(move, "C3");
-        
-        if(cmp1==0||cmp2==0||cmp3==0||cmp4==0||cmp5==0||cmp6==0||cmp7==0||cmp8==0||cmp9==0){ k++; }
-        
-        
-        //Check if valid move, and if so, update with the users's move!
-        if(cmp1==0){
-            if(board[0][0] == '.'){
-                board[0][0] = xo; k++;
-            }
+    int cmp1 = strcmp(move, "A1");
+    int cmp2 = strcmp(move, "B1");
+    int cmp3 = strcmp(move, "C1");
+    int cmp4 = strcmp(move, "A2");
+    int cmp5 = strcmp(move, "B2");
+    int cmp6 = strcmp(move, "C2");
+    int cmp7 = strcmp(move, "A3");
+    int cmp8 = strcmp(move, "B3");
+    int cmp9 = strcmp(move, "C3");
+
+    if(cmp1==0||cmp2==0||cmp3==0||cmp4==0||cmp5==0||cmp6==0||cmp7==0||cmp8==0||cmp9==0){ k++; }
+
+
+    //Check if valid move, and if so, update with the users's move!
+    if(cmp1==0){
+        if(board[0][0] == '.'){
+            board[0][0] = xo; k++;
         }
-        else if(cmp2==0){
-            if(board[1][0] == '.'){
-                board[1][0] = xo; k++;
-            }
+    }
+    else if(cmp2==0){
+        if(board[1][0] == '.'){
+            board[1][0] = xo; k++;
         }
-        else if(cmp3==0){
-            if(board[2][0] == '.'){
-                board[2][0] = xo; k++;
-            }
+    }
+    else if(cmp3==0){
+        if(board[2][0] == '.'){
+            board[2][0] = xo; k++;
         }
-        else if(cmp4==0){
-            if(board[0][1] == '.'){
-                board[0][1] = xo; k++;
-            }
+    }
+    else if(cmp4==0){
+        if(board[0][1] == '.'){
+            board[0][1] = xo; k++;
         }
-        else if(cmp5==0){
-            if(board[1][1] == '.'){
-                board[1][1] = xo; k++;
-            }
+    }
+    else if(cmp5==0){
+        if(board[1][1] == '.'){
+            board[1][1] = xo; k++;
         }
-        else if(cmp6==0){
-            if(board[2][1] == '.'){
-                board[2][1] = xo; k++;
-            }
+    }
+    else if(cmp6==0){
+        if(board[2][1] == '.'){
+            board[2][1] = xo; k++;
         }
-        else if(cmp7==0){
-            if(board[0][2] == '.'){
-                board[0][2] = xo; k++;
-            }
+    }
+    else if(cmp7==0){
+        if(board[0][2] == '.'){
+            board[0][2] = xo; k++;
         }
-        else if(cmp8==0){
-             if(board[1][2] == '.'){
-                 board[1][2] = xo; k++;
-            }
+    }
+    else if(cmp8==0){
+         if(board[1][2] == '.'){
+             board[1][2] = xo; k++;
         }
-        else if(cmp9==0){
-            if(board[2][2] == '.'){
-                board[2][2] = xo; k++;
-            }
+    }
+    else if(cmp9==0){
+        if(board[2][2] == '.'){
+            board[2][2] = xo; k++;
         }
+    }
 
     //nothing was a valid move:    
     if(k==0){ printf("Please try again\n\nType in move:\n"); //IF NOT VALID MOVE OR MOVE SET
@@ -208,10 +195,10 @@ int main(int argc, char* argv[]) //arguement, what arguement holds in string
         //printf("The supplied argument is %s %s %s\n", argv[0],argv[1], argv[2]);
         goodArguments = 1;
         
-    // Determine if client or server
-    // A server will wait to accept an invitation to play
-    // A client will send an invitation to play
-    // bool client = _____;
+        // Determine if client or server
+        // A server will wait to accept an invitation to play
+        // A client will send an invitation to play
+        // bool client = _____;
     
     
         int verify_acc = strcmp("accept", argv[2]);
@@ -264,7 +251,6 @@ int main(int argc, char* argv[]) //arguement, what arguement holds in string
     // If you are server, send to client port, and vice versa
     int num;
     if(client == 0){ //if server
-        
         num = CLIENT_PORT;
         openListenerPort(remoteIp, SERVER_PORT);
         //do server stuff (wait to accept invite to play)
@@ -303,9 +289,9 @@ int main(int argc, char* argv[]) //arguement, what arguement holds in string
     }
     //  Determine your letter (x or o) and your opponent's letter
 
-    //  Add code to send an invite or wait to accept an invite
+    //  Code to send an invite or wait to accept an invite
 
-    // Start game loop, alternating turns
+    //  Start game loop, alternating turns
     
     while(!winner && moveCount != 9)
     {
