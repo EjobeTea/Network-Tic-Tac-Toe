@@ -2,7 +2,7 @@
 
 This lab consists of a UDP protocol to implement a client and server system for gameplay.
 
-Arbitrary monitor ports between two raspberry pis consisted of port 4096 for the server and port 4097 for the client.
+Arbitrary monitor ports between two raspberry pis consists of port 4096 for the server and port 4097 for the client.
 
 ## How to compile and run ##
 | Command            | Explanation
